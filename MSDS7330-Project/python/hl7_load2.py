@@ -4,6 +4,7 @@ import hl7
 import random
 from datetime import datetime
 from datetime import date
+from math import *
 
 # start time
 t1 = datetime.now()
@@ -33,6 +34,17 @@ def genRandNumber(z):
 def calculate_age(born):
     today = date.today()
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+    
+def calcDist(lat_A, long_A, lat_B, long_B):
+    distance = (sin(radians(lat_A)) *
+                sin(radians(lat_B)) +
+                cos(radians(lat_A)) *
+                cos(radians(lat_B)) *
+                cos(radians(long_A - long_B)))
+    distance = (degrees(acos(distance))) * 69.09
+    return distance
+    
+#print calcDist(34.073759, -118.37376, 34.122658, -118.11296)
 
 inserts = 0
 count = 0
