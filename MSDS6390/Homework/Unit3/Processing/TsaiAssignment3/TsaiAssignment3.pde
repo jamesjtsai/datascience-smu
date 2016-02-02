@@ -87,4 +87,5 @@ void draw() {
   drawWindmill(width/1.35, height/1.5, 15, 7, 150);
   // draw ground - pass coordinates
   drawGround(0, height/1.1);
+  drawClock();
 }
