@@ -1,0 +1,11 @@
+color yellow = #FFFF00;
+color nordic = #06323D;
+color grey = #808080;
+color red = #FF0000;
+color flame = #E25822;
+color brown = #FF4040;
+color lightGrey = #D3D3D3;
+color blueLagoon = #0B6177;
+color white = #FFFFFF;
+color black = #000000;
+color inner;

@@ -1,0 +1,3 @@
+void drawBackground() {
+  background(blueLagoon);
+}
