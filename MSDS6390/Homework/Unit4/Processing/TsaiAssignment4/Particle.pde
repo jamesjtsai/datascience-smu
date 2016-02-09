@@ -1,3 +1,5 @@
+// Modified from Daniel Shiffman's Smoke Particle System example
+
 class Particle {
   
   PVector loc, vel, acc;
@@ -13,6 +15,7 @@ class Particle {
     loc = l.copy();
     lifespan = 100.0;
     img = img_;
+    // pass in mode to determine what kind of flame and smoke
     mode = mode_;
   }
 
@@ -33,23 +36,23 @@ class Particle {
   }
 
   void render() {
+    imageMode(CENTER);
     if (mode == 0) {
-      fill(brown,lifespan);
-      imageMode(CENTER);
+      // yellow portion of the flame
       tint(yellow,lifespan);
       image(img,loc.x,loc.y);
+      // red portion of the flame
       tint(red,lifespan);
       image(img,loc.x,loc.y,img.width/3,img.height);
-      fill(white,lifespan+50);
-      ellipse(loc.x,loc.y,1,5);
+      // embers of the flame, located slightly above the flame
+      fill(white,lifespan);
+      ellipse(loc.x,loc.y/1.03,2,5);
     }
     if (mode == 1) {
-      imageMode(CENTER);
       tint(white,lifespan);
       image(img,loc.x,loc.y);
     }
     if (mode == 2) {
-      imageMode(CENTER);
       tint(lightGrey,lifespan);
       image(img,loc.x,loc.y);
     }

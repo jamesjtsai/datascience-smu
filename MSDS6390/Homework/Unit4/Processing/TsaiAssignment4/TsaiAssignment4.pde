@@ -5,9 +5,10 @@ Name:    James Tsai
 
 Title:   Assignment #4, Dynamic Composition II
 
-Links:
+Links:   http://captainberunov.deviantart.com/art/Connor-la-vengeance-340903523
+         https://en.wikipedia.org/wiki/Ghost_Rider_(Johnny_Blaze)
 
-Keywords: Ghost Rider, Flaming Skull
+Keywords: Ghost Rider, Flaming Skull, Johnny Blaze
 */
 
 float gridUnit;
@@ -24,7 +25,6 @@ void setup() {
  guHeight=height*gridUnit;
  timer = 0;
  initFlames();
- 
 }
 
 void draw() {

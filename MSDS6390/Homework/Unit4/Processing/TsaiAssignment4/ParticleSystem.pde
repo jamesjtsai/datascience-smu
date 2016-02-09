@@ -1,3 +1,5 @@
+// Modified from Daniel Shiffman's Smoke Particle System example
+
 class ParticleSystem {
   
   ArrayList<Particle> particles;
