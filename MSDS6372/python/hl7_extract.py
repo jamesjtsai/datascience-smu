@@ -1,15 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Feb 06 16:34:56 2016
-
-@author: james
-"""
-
 import glob
 import hl7
 from datetime import datetime
 from datetime import date
-
 
 def calculate_age(born):
     today = date.today()
