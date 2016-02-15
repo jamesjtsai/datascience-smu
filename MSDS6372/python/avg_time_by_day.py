@@ -23,7 +23,7 @@ for line in f:
       sum2=sum2+f3
       count+=1.0
    else:
-      print str(prev_f2)+','+str(sum1/count)+','+str(sum2/count)+','+str(int(count))+','+str(prev_f4)+','+str(grp0)+','+str(grp1)+','+str(grp2)+','+str(grp3)+','+str(grp4)+','+str(grp5)+','+str(grp6)+','+str(grp7)+','+str(grp8)+','+str(grp9)
+      print str(sum1/count)+','+str(sum2/count)+','+str(int(count))+','+str(prev_f2)+','+str(prev_f4)+','+str(grp0)+','+str(grp1)+','+str(grp2)+','+str(grp3)+','+str(grp4)+','+str(grp5)+','+str(grp6)+','+str(grp7)+','+str(grp8)+','+str(grp9)
       count=1.0
       sum1=f1
       sum2=f3
@@ -51,5 +51,5 @@ for line in f:
    prev_f2=f2
    prev_f4=f4
 
-print str(prev_f2)+','+str(sum1/count)+','+str(sum2/count)+','+str(int(count))+','+str(prev_f4)+','+str(grp0)+','+str(grp1)+','+str(grp2)+','+str(grp3)+','+str(grp4)+','+str(grp5)+','+str(grp6)+','+str(grp7)+','+str(grp8)+','+str(grp9)
+print str(sum1/count)+','+str(sum2/count)+','+str(int(count))+','+str(prev_f2)+','+str(prev_f4)+','+str(grp0)+','+str(grp1)+','+str(grp2)+','+str(grp3)+','+str(grp4)+','+str(grp5)+','+str(grp6)+','+str(grp7)+','+str(grp8)+','+str(grp9)
 f.close()
