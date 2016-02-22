@@ -7,7 +7,7 @@ int w;
 float theta = 0.0;
 
 // Height of wave
-float amplitude = 60.0;
+float amplitude = 80.0;
 
 // How many pixels before the wave repeats
 float period = 576.0;

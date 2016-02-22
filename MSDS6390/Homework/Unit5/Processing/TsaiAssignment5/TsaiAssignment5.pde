@@ -19,7 +19,7 @@ void setup() {
 
 void draw() {
   background(128, 128, 128);
-  sequencePhotos();
+  traversePhotos();
   drawPhoto();
   drawTiles();
   drawWave();
