@@ -9,7 +9,7 @@ void initPhotos() {
   photos.append("olaf.jpg");
   photos.append("bubbles.jpg");
   photos.append("cards.png");
-  photos.append("eyes.jpg");
+  photos.append("panda.png");
   photos.append("flag.png");
   photos.append("icecream.jpg");
 }
