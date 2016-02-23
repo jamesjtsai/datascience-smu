@@ -6,11 +6,13 @@ boolean b;
 void initPhotos() {
   pi = 0;
   b = true;
+  photos.append("icecream.jpg");
+  photos.append("curve.jpg");
+  photos.append("flag.png");
   photos.append("olaf.jpg");
   photos.append("bubbles.jpg");
   photos.append("cards.png");
   photos.append("panda.png");
-  photos.append("flag.png");
   photos.append("icecream.jpg");
 }
 
