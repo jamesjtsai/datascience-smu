@@ -32,6 +32,7 @@ void calcWave() {
 void renderWave(color[] cw) {
   noStroke();
   for (int x = 0; x < yvalues.length; x++) {
+    // use color array from image
     fill(cw[x]);
     ellipse(x*xspacing, height/1.20+yvalues[x], 25, 25);
   }
