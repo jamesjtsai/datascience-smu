@@ -11,9 +11,9 @@ class Tiles {
   private void loadColors() {
     loadPixels();
     int i=0;
-    colors = new color[576];
+    colors = new color[640];
     for(int x=0; x<img.width; x=x+20) {
-      for(int y=0; y<img.height; y=y+20) {
+      for(int y=0; y<img.height; y=y+18) {
         colors[i] = img.get(x, y);
         i++;
       }
@@ -45,7 +45,7 @@ void drawTiles() {
   cPI = tiles.get(pi).getColors();
   int count=0;
   for(int x=0; x<img.width; x=x+20) {
-    for(int y=0; y<img.height; y=y+20) {
+    for(int y=0; y<img.height; y=y+18) {
       fill(cPI[count]);
       rect(x, y+height/3, 22, 22);
       count++;

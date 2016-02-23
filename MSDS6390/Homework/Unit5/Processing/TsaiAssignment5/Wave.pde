@@ -1,5 +1,5 @@
 // How far apart should each horizontal location be spaced
-int xspacing = 2;
+int xspacing = 1;
 
 // Width of entire wave
 int w;
@@ -10,7 +10,7 @@ float theta = 0.0;
 float amplitude = 80.0;
 
 // How many pixels before the wave repeats
-float period = 576.0;
+float period = 640.0;
 
 // Value for incrementing X, a function of period and xspacing
 float dx;
@@ -31,16 +31,15 @@ void calcWave() {
 
 void renderWave(color[] cw) {
   noStroke();
-  fill(255, 0, 0);
   for (int x = 0; x < yvalues.length; x++) {
-    fill(cw[x+125]);
+    fill(cw[x]);
     ellipse(x*xspacing, height/1.20+yvalues[x], 25, 25);
   }
 }
 
 void initWave() {
   noStroke();
-  w = width+16;
+  w = width;
   dx = (TWO_PI / period) * xspacing;
   yvalues = new float[w/xspacing];
 }
