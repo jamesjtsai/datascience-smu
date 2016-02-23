@@ -2,12 +2,7 @@
 Class:   MSDS6390 - Visualization 1
 Date:    February 18, 2016
 Name:    James Tsai
-
 Title:   Assignment #5, Imaging Visualization
-
-Links:   
-
-Keywords: Sine Wave
 */
 
 void setup() {
