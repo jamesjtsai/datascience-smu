@@ -18,7 +18,7 @@ void initPhotos() {
 void traversePhotos() {
   if(second()%10==0 && b) {
     if(photos.size()-1 == pi)
-       pi = 0;
+      pi = 0;
     else
       pi++;
     b = false;

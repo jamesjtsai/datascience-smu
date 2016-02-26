@@ -2,30 +2,30 @@ ArrayList<Tiles> tiles = new ArrayList<Tiles>();
 color[] cPI;
 
 class Tiles {
-  Tiles(String fn_) {
-    fn = fn_;
-    img = loadImage(fn_);
+  Tiles(String fn) {
+    this.fn = fn;
+    this.img = loadImage(fn);
     loadColors();
   }
   
   private void loadColors() {
     loadPixels();
     int i=0;
-    colors = new color[640];
-    for(int x=0; x<img.width; x=x+20) {
-      for(int y=0; y<img.height; y=y+18) {
-        colors[i] = img.get(x, y);
+    this.colors = new color[640];
+    for(int x=0; x<this.img.width; x=x+20) {
+      for(int y=0; y<this.img.height; y=y+18) {
+        this.colors[i] = this.img.get(x, y);
         i++;
       }
     }
   }
   
   PImage getImage() {
-    return img;
+    return this.img;
   }
   
   color[] getColors() {
-    return colors;
+    return this.colors;
   }
   
   String fn;
@@ -44,8 +44,8 @@ void drawTiles() {
   stroke(3);
   cPI = tiles.get(pi).getColors();
   int count=0;
-  for(int x=0; x<img.width; x=x+20) {
-    for(int y=0; y<img.height; y=y+18) {
+  for(int x=0; x<this.img.width; x=x+20) {
+    for(int y=0; y<this.img.height; y=y+18) {
       fill(cPI[count]);
       rect(x, y+height/3, 22, 22);
       count++;
