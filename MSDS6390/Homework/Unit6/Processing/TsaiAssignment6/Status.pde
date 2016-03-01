@@ -65,6 +65,7 @@ void drawStatus() {
     displayStatus(i);
 }
 
+PFont font;
 void drawSign() {
   noStroke();
   pushMatrix();
@@ -72,11 +73,17 @@ void drawSign() {
   mickey(1.25);
   // pole to hold mickey sign
   rect(-20, 0, 40, 200);
-  fill(255);
-  // rectangle for park name
   fill(0);
+  if (pi == 0)
+    font = createFont("waltograph42.ttf", 40);
+  if (pi == 1)
+    font = createFont("spacestation77.ttf", 32);
+  if (pi == 2)
+    font = createFont("junglefe.ttf", 25);
+  if (pi == 3)
+    font = createFont("storybook.ttf", 25);
+  textFont(font);
   textAlign(CENTER);
-  textSize(20);
   text(displays.get(pi), 0, -55);
   textSize(20);
   text("average wait", 0, -20);
@@ -84,7 +91,7 @@ void drawSign() {
   // rectangle for average wait time
   rect(-40, -15, 80, 50);
   fill(0);
-  textSize(40);
+  textSize(50);
   text((int)getAverageWaitTime(), 0, 25);
   textSize(20);
   text("minutes", 0, 55);

@@ -72,7 +72,7 @@ float getAverageWaitTime() {
 
 void mouseClicked() {
   pi++;
-  if (pi == 4)
+  if (pi == urls.size())
     pi = 0;
   initRides();
 }
