@@ -1,13 +1,16 @@
+int pi = 0;
+StringList urls = new StringList();
+StringList displays = new StringList();
 StringList times = new StringList();
 StringList locations = new StringList();
 StringList ridenames = new StringList();
-String url = "http://www.easywdw.com/waits/?&park=mk&sort=ride";
 
 private void parseHTML() {
   times.clear();
   locations.clear();
   ridenames.clear();
-  String lines[] = loadStrings(url);
+  println(printDateTime() + ":" + "Fetching URL: " + urls.get(pi));
+  String lines[] = loadStrings(urls.get(pi));
   for (int i=0; i<lines.length; i++) {
     String[] minutes = match(lines[i], "([0-9]+) Min");
     if (minutes != null) {
@@ -30,6 +33,17 @@ private void parseHTML() {
       }
     }
   }
+}
+
+void initParks() {
+  urls.append("http://www.easywdw.com/waits/?park=mk");
+  urls.append("http://www.easywdw.com/waits/?park=ep");
+  urls.append("http://www.easywdw.com/waits/?park=ak");
+  urls.append("http://www.easywdw.com/waits/?park=hs");
+  displays.append("Magic Kingdom");
+  displays.append("Epcot");
+  displays.append("Animal Kingdom");
+  displays.append("Hollywood Studios");
 }
 
 //private void parseTEST() {

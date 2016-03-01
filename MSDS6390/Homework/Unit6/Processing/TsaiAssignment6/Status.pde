@@ -1,7 +1,3 @@
-void mouseClicked() {
-  initRides();
-}
-
 void drawStatus() {
   int i=99;
   if(dist(mouseX, mouseY, 100, 667) <= 30)
@@ -74,18 +70,24 @@ void drawSign() {
   pushMatrix();
   translate(width/1.3, height/1.3);
   mickey(1.25);
+  // pole to hold mickey sign
   rect(-20, 0, 40, 200);
+  fill(255);
+  // rectangle for park name
   fill(0);
   textAlign(CENTER);
   textSize(20);
-  text("average wait", 0, -45);
+  text(displays.get(pi), 0, -55);
+  textSize(20);
+  text("average wait", 0, -20);
   fill(255);
-  rect(-40, -40, 80, 50);
+  // rectangle for average wait time
+  rect(-40, -15, 80, 50);
   fill(0);
   textSize(40);
-  text((int)getAverageWaitTime(), 0, 0);
+  text((int)getAverageWaitTime(), 0, 25);
   textSize(20);
-  text("minutes", 0, 30);
+  text("minutes", 0, 55);
   popMatrix();
 }
 
@@ -96,7 +98,18 @@ void displayStatus(int i) {
   fill(0);
   textAlign(CENTER);
   textSize(20);
-  text(rides[i].getRide(), 475, 225);
+  String ride = rides[i].getRide();
+  if (ride.length() > 33) {
+    textSize(15);
+  }
+  if (ride.length() > 52) {
+    textSize(10);
+  }
+  if (ride.length() > 56) {
+    textSize(9);
+  }
+  text(ride, 475, 225);
+  textSize(20);
   text(rides[i].getLocation(), 475, 250);
   text(rides[i].getTime()+" minutes", 475, 275);
 }

@@ -49,7 +49,6 @@ void initRides() {
   rides = alRides.toArray(new Rides[alRides.size()]);
   // sort the array by time
   java.util.Arrays.sort(rides);
-  printRides();
 }
 
 void printRides() {
@@ -59,10 +58,21 @@ void printRides() {
   }
 }
 
+String printDateTime() {
+  return (new java.util.Date().toString());
+}
+
 float getAverageWaitTime() {
   int total = 0;
   for(int k=0; k<times.size(); k++)
     total = total + parseInt(times.get(k));
   if (times.size() == 0) return 0;
   return (float)total/(float)times.size();
+}
+
+void mouseClicked() {
+  pi++;
+  if (pi == 4)
+    pi = 0;
+  initRides();
 }

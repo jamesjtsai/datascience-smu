@@ -68,7 +68,6 @@ void drawVine() {
 }
 
 float[] lX, lY, lS;
-
 void drawFlora() {
   noStroke();
   fill(0);

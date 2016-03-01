@@ -7,6 +7,7 @@ Title:   Assignment #6, Net Visualization
 
 void setup() {
   size(800, 800);
+  initParks();
   initRides();
   initFlora();
 }
