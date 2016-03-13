@@ -72,10 +72,14 @@ class Visualizer {
   }
   
   void grid() {
-    strokeWeight(2);
+    strokeWeight(3);
     stroke(255);
+    line(0, 0, width, 0);
     line(0, height/2, width, height/2);
+    line(0, height, width, height);
+    line(0, 0, 0, height);
     line(width/2, 0, width/2, height);
+    line(width, 0, width, height);
   }
   
   void interact() {
