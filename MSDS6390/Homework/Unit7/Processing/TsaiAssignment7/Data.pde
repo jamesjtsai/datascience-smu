@@ -11,6 +11,7 @@ class Data {
       images[i] = loadImage(filenames[i]);
     }
     loadColors();
+    logCurrentPhoto();
   }
   
   void loadColors() {
@@ -38,14 +39,14 @@ class Data {
       else
         pi++;
       this.b = false;
-      printCurrentFile();
+      logCurrentPhoto();
     }
     if(second()%11==0 && second()!=0 || second()==1) {
       this.b = true;
     }
   }
   
-  void printCurrentFile() {
+  void logCurrentPhoto() {
     println(new java.util.Date().toString() + ": " + this.filenames[pi]);
   }
   
@@ -61,10 +62,27 @@ class Data {
     return this.colors.get(this.pi);
   }
   
+  boolean getInvert() {
+    return this.i;
+  }
+  
+  void setInvert() {
+    if (this.i == true)
+      this.i = false;
+    else
+      this.i = true;
+  }
+  
   String[] filenames;
   PImage[] images;
   ArrayList<color[]> colors;
-  boolean b;
+  boolean b, i;
   int pi;
-  
+ 
 }
+
+void mouseClicked() {
+  d.setInvert();
+}
+
+  

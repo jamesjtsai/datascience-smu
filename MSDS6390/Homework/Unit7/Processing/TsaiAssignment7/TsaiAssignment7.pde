@@ -17,10 +17,11 @@ void setup() {
 }
 
 void draw() {
-  background(128, 128, 128);
+  background(128);
   d.next();
   v.photos();
   v.spin();
   v.wave();
   v.tiles();
+  v.interact();
 }

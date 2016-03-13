@@ -6,6 +6,10 @@ class Visualizer {
     this.d = d;
   }
   
+  void interact() {
+    if(d.getInvert()) filter(INVERT);
+  }
+  
   void photos() {
     pushMatrix();
     stroke(1);
@@ -37,7 +41,7 @@ class Visualizer {
     pushMatrix();
     translate(width/1.3, height/4);
     noStroke();
-    for (int i = 0; i<640; i++) {
+    for (int i=0; i<640; i++) {
       pushMatrix();
       float s = circleSize+noise(i*0.5)*circleSize;
       rotate(radians(-i-frameCount*map(s, circleSize, circleSize*2, 0.5, 0.1)));
@@ -74,8 +78,8 @@ class Visualizer {
   }
   
   Data d;
-  float circleSize = 60;
-  float dx = (2*PI)/640;
+  float circleSize = 65.0;
+  float dx = (2*PI)/160.0;
   float[] yvalues = new float[640];
   float theta = 0.0;
   float amplitude = 50.0;
