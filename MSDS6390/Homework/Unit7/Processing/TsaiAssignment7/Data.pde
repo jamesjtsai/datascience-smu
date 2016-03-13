@@ -80,9 +80,3 @@ class Data {
   int pi;
  
 }
-
-void mouseClicked() {
-  d.setInvert();
-}
-
-  

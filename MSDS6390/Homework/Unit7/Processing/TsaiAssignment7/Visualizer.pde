@@ -5,16 +5,9 @@ class Visualizer {
   Visualizer(Data d) {
     this.d = d;
   }
-  
-  void interact() {
-    if(d.getInvert()) filter(INVERT);
-  }
-  
+ 
   void photos() {
     pushMatrix();
-    stroke(1);
-    line(0, height/2, width, height/2);
-    line(width/2, 0, width/2, height);
     noStroke();
     image(d.getImage(), 0, 0);
     popMatrix();
@@ -23,7 +16,7 @@ class Visualizer {
   void tiles() {
     pushMatrix();
     translate(width/2, height/2);
-    stroke(3);
+    stroke(1);
     strokeWeight(1);
     int cnt = 0;
     color[] cd = this.d.getColors();
@@ -37,9 +30,10 @@ class Visualizer {
     popMatrix();
   }
   
-  void spin() {
+  void vortex() {
     pushMatrix();
     translate(width/1.3, height/4);
+    image(d.getImage(), -80, -45, 160, 90);
     noStroke();
     for (int i=0; i<640; i++) {
       pushMatrix();
@@ -77,6 +71,17 @@ class Visualizer {
     popMatrix();
   }
   
+  void grid() {
+    strokeWeight(2);
+    stroke(255);
+    line(0, height/2, width, height/2);
+    line(width/2, 0, width/2, height);
+  }
+  
+  void interact() {
+    if(d.getInvert()) filter(INVERT);
+  }
+ 
   Data d;
   float circleSize = 65.0;
   float dx = (2*PI)/160.0;
