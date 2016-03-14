@@ -33,16 +33,13 @@ class Visualizer {
   void vortex() {
     pushMatrix();
     translate(width/1.3, height/4);
-    image(d.getImage(), -80, -45, 160, 90);
     noStroke();
+    image(d.getImage(), -80, -45, 160, 90);
     for (int i=0; i<640; i++) {
       pushMatrix();
       float s = circleSize+noise(i*0.5)*circleSize;
       rotate(radians(-i-frameCount*map(s, circleSize, circleSize*2, 0.5, 0.1)));
-      if(this.d.getColors() != null)
-        fill(this.d.getColors()[639-i], 150);
-      else
-        fill(map(s, circleSize, circleSize*2, 255, 0), 0, 0, 125);
+      fill(this.d.getColors()[639-i], 150);
       ellipse(-s, -s, map(s, circleSize, circleSize*2, 5, 25), map(s, circleSize, circleSize*2, 5, 25));
       popMatrix();
     }
@@ -62,10 +59,7 @@ class Visualizer {
     translate(-width/100, height/1.33);
     noStroke();
     for (int x=0; x<yvalues.length; x++) {
-      if(this.d.getColors() != null)
-        fill(this.d.getColors()[x], 200);
-      else
-        fill(255, 0, 0);
+      fill(this.d.getColors()[x], 200);
       ellipse(x, yvalues[x], 25, 25);
     }
     popMatrix();
