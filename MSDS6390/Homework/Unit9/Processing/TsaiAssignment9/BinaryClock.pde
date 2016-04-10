@@ -19,10 +19,55 @@ class BinaryClock extends Clock {
   void clockface() {
     strokeWeight(3);
     stroke(Bauhaus.fluff);
-    for(int i=0; i<7; i++)
-      line(i*width/12, 0, i*width/12, height/2);
-    for(int i=0; i<5; i++)
-      line(0, i*height/8, width/2, i*height/8);
+    line(0, 0, width/2, 0);
+    line(width/6, 0, width/6, height/2);
+    line(width/3, 0, width/3, height/2);
+    for(int i=0; i<6; i=i+2) {
+      pushMatrix();
+        translate(((5-i)*width/12)+7, 7);
+        led(false);
+        pushMatrix();
+          translate(0, height/8);
+          led(false);
+        popMatrix();
+        pushMatrix();
+          translate(0, 2*height/8);
+          led(false);
+        popMatrix();
+        pushMatrix();
+          translate(0, 3*height/8);
+          led(false);
+        popMatrix(); 
+      popMatrix();
+    }
+    for(int i=1; i<4; i=i+2) {
+      pushMatrix();
+        translate(((5-i)*width/12)+7, 7);
+        pushMatrix();
+          translate(0, height/8);
+          led(false);
+        popMatrix();
+        pushMatrix();
+          translate(0, 2*height/8);
+          led(false);
+        popMatrix();
+        pushMatrix();
+          translate(0, 3*height/8);
+          led(false);
+        popMatrix(); 
+      popMatrix();
+    }
+    pushMatrix();
+    translate(7, 7);
+      pushMatrix();
+        translate(0, 2*height/8);
+        led(false);
+      popMatrix();
+      pushMatrix();
+        translate(0, 3*height/8);
+        led(false);
+      popMatrix(); 
+    popMatrix();
   }
   
   void draw(BitSet bs, int pos) {
@@ -33,36 +78,39 @@ class BinaryClock extends Clock {
       if(bs.get(3) == true) {
         pushMatrix();
         translate(0, 0);
-        led();
+        led(true);
         popMatrix();
       }
       if(bs.get(2) == true) {
         pushMatrix();
         translate(0, height/8);
-        led();
+        led(true);
         popMatrix();
       }
       if(bs.get(1) == true) {
         pushMatrix();
         translate(0, 2*height/8);
-        led();
+        led(true);
         popMatrix();
       }
       if(bs.get(0) == true) {
         pushMatrix();
         translate(0, 3*height/8);
-        led();
+        led(true);
         popMatrix();     
       }
       popMatrix();
     }
   }
   
-  void led() {
+  void led(boolean b) {
     beginShape();
     strokeWeight(5);
     stroke(Bauhaus.red);
-    fill(Bauhaus.yellow);
+    if(b)
+      fill(Bauhaus.yellow);
+    else
+      fill(Bauhaus.grey);
     rect(width/54, height/38, width/27, height/19, 10);
     endShape();
   }
