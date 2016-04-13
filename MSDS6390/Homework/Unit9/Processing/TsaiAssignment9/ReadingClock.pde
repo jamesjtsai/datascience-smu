@@ -14,7 +14,7 @@ class ReadingClock extends Clock {
   }
   
   void clockface() {
-    fill(Bauhaus.red);
+    fill(Bauhaus.RED);
     rect(15, 15, width/2-30, height/2-30, 10);
     textFont(font);
     textSize(50);
@@ -69,198 +69,198 @@ class ReadingClock extends Clock {
   color getColor(int pos) {
     // "IT IS"
     if (pos == 0 || pos == 1)
-       return Bauhaus.fluff;
+       return Bauhaus.FLUFF;
     
     // "HALF"
     if (pos == 2) {
       if (getMinute() >= 30 && getMinute() < 35)
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TEN"
     if (pos == 3) {
       if (getMinute() >= 10 && getMinute() < 15)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if (getMinute() >= 50 && getMinute() < 55)
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "QUARTER"
     if (pos == 4) {
       if (getMinute() >= 15 && getMinute() < 20)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if (getMinute() >= 45 && getMinute() < 50)
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TWENTY"
     if (pos == 5) {
       if (getMinute() >= 20 && getMinute() < 30)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if (getMinute() >= 35 && getMinute() < 45)
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "FIVE"
     if (pos == 6) {
       if (getMinute() >= 5 && getMinute() < 10)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if (getMinute() >= 25 && getMinute() < 30)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getMinute() >= 35 && getMinute() < 40) || (getMinute() >= 55))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "MINUTES"
     if (pos == 7) {
       if (getMinute() >= 5 && getMinute() < 15)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if (getMinute() >= 20 && getMinute() < 30)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getMinute() >= 35 && getMinute() < 45) || (getMinute() >= 50))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TO"
     if (pos == 8) {
       if (getMinute() >= 35)
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       else
-         return Bauhaus.muted;
+         return Bauhaus.MUTED;
     }
     
     // "PAST"
     if (pos == 9) {
       if (getMinute() >= 5 && getMinute() < 35)
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "ONE"
     if (pos == 10) {
       if ((getHour() == 0 && getMinute() >= 35) || (getHour() == 1 && getMinute() >= 0 && getMinute() < 35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 12 && getMinute() >= 35) || (getHour() == 13 && getMinute() >= 0 && getMinute() < 35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "THREE"
     if (pos == 12) {
       if ((getHour() == 2 && getMinute() >= 35) || (getHour() == 3 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 14 && getMinute() >= 35) || (getHour() == 15 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TWO"
     if (pos == 11) {
       if ((getHour() == 1 && getMinute() >= 35) || (getHour() == 2 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 13 && getMinute() >= 35) || (getHour() == 14 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "FOUR"
     if (pos == 13) {
       if ((getHour() == 3 && getMinute() >= 35) || (getHour() == 4 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;  
+         return Bauhaus.FLUFF;  
       if ((getHour() == 15 && getMinute() >= 35) || (getHour() == 16 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "FIVE"
     if (pos == 14) {
       if ((getHour() == 4 && getMinute() >= 35) || (getHour() == 5 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 16 && getMinute() >= 35) || (getHour() == 17 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "SIX"
     if (pos == 15) {
       if ((getHour() == 5 && getMinute() >= 35) || (getHour() == 6 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 17 && getMinute() >= 35) || (getHour() == 18 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "SEVEN"
     if (pos == 16) {
       if ((getHour() == 6 && getMinute() >= 35) || (getHour() == 7 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 18 && getMinute() >= 35) || (getHour() == 19 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "EIGHT"
     if (pos == 17) {
       if ((getHour() == 7 && getMinute() >= 35) || (getHour() == 8 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;    
+         return Bauhaus.FLUFF;    
       if ((getHour() == 19 && getMinute() >= 35) || (getHour() == 20 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "NINE" 
     if (pos == 18) {
       if ((getHour() == 8 && getMinute() >= 35) || (getHour() == 9 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 20 && getMinute() >= 35) || (getHour() == 21 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TEN"
     if (pos == 19) {
       if ((getHour() == 9 && getMinute() >= 35) || (getHour() == 10 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 21 && getMinute() >= 35) || (getHour() == 22 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "ELEVEN"
     if (pos == 20) {
       if ((getHour() == 10 && getMinute() >= 35) || (getHour() == 11 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 22 && getMinute() >= 35) || (getHour() == 23 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
     
     // "TWELVE"
     if (pos == 21) {
       if ((getHour() == 11 && getMinute() >= 35) || (getHour() == 12 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
+         return Bauhaus.FLUFF;
       if ((getHour() == 23 && getMinute() >= 35) || (getHour() == 0 && getMinute() >=0 && getMinute() <35))
-         return Bauhaus.fluff;
-      return Bauhaus.muted;
+         return Bauhaus.FLUFF;
+      return Bauhaus.MUTED;
     }
        
     // "O'CLOCK"
     if (pos == 22) {
-      return Bauhaus.fluff;
+      return Bauhaus.FLUFF;
     }
-    return Bauhaus.muted;
+    return Bauhaus.MUTED;
   }
   
   String[] words = { "IT", "IS", "HALF", "TEN", "QUARTER", "TWENTY", "FIVE", "MINUTES", "TO",
                      "PAST", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT",
                      "NINE", "TEN", "ELEVEN", "TWELVE", "O'CLOCK" };
                   
-  PFont font = createFont(Bauhaus.font, 40);
+  PFont font = createFont(Bauhaus.FONT, 40);
   
 }

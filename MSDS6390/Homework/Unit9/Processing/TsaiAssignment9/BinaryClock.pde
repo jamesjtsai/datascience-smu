@@ -18,7 +18,7 @@ class BinaryClock extends Clock {
   
   void clockface() {
     strokeWeight(3);
-    stroke(Bauhaus.fluff);
+    stroke(Bauhaus.FLUFF);
     line(0, 0, width/2, 0);
     line(width/6, 0, width/6, height/2);
     line(width/3, 0, width/3, height/2);
@@ -106,11 +106,11 @@ class BinaryClock extends Clock {
   void led(boolean b) {
     beginShape();
     strokeWeight(5);
-    stroke(Bauhaus.red);
+    stroke(Bauhaus.RED);
     if(b)
-      fill(Bauhaus.yellow);
+      fill(Bauhaus.YELLOW);
     else
-      fill(Bauhaus.grey);
+      fill(Bauhaus.GREY);
     rect(width/54, height/38, width/27, height/19, 10);
     endShape();
   }

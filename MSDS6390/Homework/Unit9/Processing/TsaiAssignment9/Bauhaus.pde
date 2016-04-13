@@ -1,14 +1,14 @@
-// Bauhaus theme - colors and font
+// Bauhaus theme - colors and FONT
 
-final static class Bauhaus {
+class Bauhaus {
   
-  final static color blue = #144184;
-  final static color charcoal = #222222;
-  final static color fluff = #F0F3F7;
-  final static color grey = #505050;
-  final static color muted = #71281A;
-  final static color red = #99281A;
-  final static color yellow = #BFA21A;
-  final static String font = "Bauhaus.ttf";
+  final static color BLUE = #144184;
+  final static color CHARCOAL = #222222;
+  final static color FLUFF = #F0F3F7;
+  final static color GREY = #505050;
+  final static color MUTED = #71281A;
+  final static color RED = #99281A;
+  final static color YELLOW = #BFA21A;
+  final static String FONT = "Bauhaus.ttf";
   
 }

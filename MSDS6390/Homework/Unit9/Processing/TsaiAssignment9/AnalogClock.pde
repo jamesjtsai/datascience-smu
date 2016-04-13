@@ -17,10 +17,10 @@ class AnalogClock extends Clock {
   
   void clockface() {
     strokeWeight(8);
-    stroke(Bauhaus.red);
-    fill(Bauhaus.blue);
+    stroke(Bauhaus.RED);
+    fill(Bauhaus.BLUE);
     ellipse(0, 0, clockDiameter, clockDiameter);
-    stroke(Bauhaus.fluff);
+    stroke(Bauhaus.FLUFF);
     strokeWeight(8);
     strokeCap(PROJECT);
     for (int a = 0; a < 360; a+=6) {
@@ -31,7 +31,7 @@ class AnalogClock extends Clock {
       float y2 = sin(angle) * secRadBigger;
       line(x1, y1, x2, y2);
     }
-    fill(Bauhaus.fluff);
+    fill(Bauhaus.FLUFF);
     for(int i=0; i<4; i++) {
       float angle = radians(i*90);
       float x = cos(angle) * secRadMedium * 0.92;
@@ -75,20 +75,20 @@ class AnalogClock extends Clock {
     float hrsRadMedium = radius * 0.40;
     float hrsRadBig = radius * 0.50;
     float h = map(getHour() + norm(getMinute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
-    stroke(Bauhaus.fluff);
+    stroke(Bauhaus.FLUFF);
     ellipse(0, 0, 41, 41);
     // Draw the yellow parts of the hour hand
-    stroke(Bauhaus.yellow);
+    stroke(Bauhaus.YELLOW);
     strokeWeight(42);
     line(0, 0, cos(h) * hrsRadMedium, sin(h) * hrsRadMedium);
     strokeWeight(15);
     line(0, 0, cos(h) * hrsRadBig, sin(h) * hrsRadBig);
     // Draw the red part of the hour hand
-    stroke(Bauhaus.red);
+    stroke(Bauhaus.RED);
     strokeWeight(40);
     line(0, 0, cos(h) * hrsRadSmall, sin(h) * hrsRadSmall);
     // Draw hour hand mount
-    stroke(Bauhaus.red);
+    stroke(Bauhaus.RED);
     ellipse(0, 0, 28, 28);
   }
   
@@ -98,14 +98,14 @@ class AnalogClock extends Clock {
     float minRadMedium = radius * 0.62;
     float minRadBig = radius * 0.70;
     float m = map(getMinute() + norm(getSecond(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    stroke(Bauhaus.yellow);
+    stroke(Bauhaus.YELLOW);
     ellipse(0, 0, 22, 22);
     strokeWeight(42);
     line(0, 0, cos(m) * minRadMedium, sin(m) * minRadMedium);
     strokeWeight(15);
     line(0, 0, cos(m) * minRadBig, sin(m) * minRadBig);
     // Draw the red part of the minute hand
-    stroke(Bauhaus.red);
+    stroke(Bauhaus.RED);
     strokeWeight(40);
     line(0, 0, cos(m) * minRadSmall, sin(m) * minRadSmall);
     // Draw the minute hand mount
@@ -113,11 +113,11 @@ class AnalogClock extends Clock {
   }
   
   void secondHand() {
-    stroke(Bauhaus.yellow);
+    stroke(Bauhaus.YELLOW);
     strokeWeight(17);
     float s = map(msInitial+millis(), 0, 60000, 0, TWO_PI) - HALF_PI;
     line(0, 0, cos(s) * secRadBig, sin(s) * secRadBig);
-    stroke(Bauhaus.red);
+    stroke(Bauhaus.RED);
     strokeWeight(15);
     line(0, 0, cos(s) * secRadSmall, sin(s) * secRadSmall);
   }
