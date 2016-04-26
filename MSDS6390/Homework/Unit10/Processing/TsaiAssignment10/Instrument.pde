@@ -23,12 +23,12 @@ class Instrument implements Notes {
     if( millis() - lastTime > timeToWait)
     {
       lastTime = millis();
-      if(index < music.length-1) {
-        index++;
+      if(index < music.length) {
         float note = music[index];
         s.notePlayed(note);
         gainGlide.setValue(0.25);
         frequencyGlide.setValue(note);
+        index++;
       }
       else {
         index=0;

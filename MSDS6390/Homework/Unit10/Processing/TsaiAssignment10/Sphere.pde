@@ -9,10 +9,10 @@ class Sphere {
    if (note > 500) 
      sphere1 = createShape(SPHERE, 10);
    sphere2 = createShape(SPHERE, 30);
-   PImage merctext = loadImage("mercury.jpg");
-   PImage suntext = loadImage("sparks.jpg");
-   sphere1.setTexture(merctext);
-   sphere2.setTexture(suntext);
+   PImage mercury = loadImage("mercury.jpg");
+   PImage sparks = loadImage("sparks.jpg");
+   sphere1.setTexture(mercury);
+   sphere2.setTexture(sparks);
    led = false;
  }
  

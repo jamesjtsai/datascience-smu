@@ -7,8 +7,8 @@ class MusicLoader {
     songs.add(MusicData.pause);
     songs.add(MusicData.cello_suite_1);
     songs.add(MusicData.pause);
-    songs.add(MusicData.rondeau);
-    songs.add(MusicData.pause);
+    //songs.add(MusicData.rondeau);
+    //songs.add(MusicData.pause);
   }
   
   float[] getSong() {
