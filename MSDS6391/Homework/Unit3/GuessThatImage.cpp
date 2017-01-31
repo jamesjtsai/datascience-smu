@@ -19,7 +19,6 @@ int main() {
     return 0;
 }
 
-
 void playGame() {
     Display display;
     Check check;
@@ -27,17 +26,25 @@ void playGame() {
     lives = 3;
     misses = MAX_MISS;
     string userGuess;
+    char answer[20];
+    char * image = display.getRandomImage();
+    sscanf(image,"%[^.]",answer);
+    string img = "images/";
+    img.append(image);
+
     while (lives > 0) {
         system("clear");
-        //display.displayImage("images/apple.txt");
-        display.displayRandomImage();
+        display.displayImage(img);
         cout << "You have " << misses << " more tries." << endl;
         cout << "What is that image? " << endl;
         getline(cin, userGuess);
-        if (check.isCorrect(userGuess)) {
+        if (check.isCorrect(userGuess, answer)) {
             cout << "\nCongratulations!" << endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-            return;
+            image = display.getRandomImage();
+            sscanf(image,"%[^.]",answer);
+            img = "images/";
+            img.append(image);
         }
         else {
             misses--;

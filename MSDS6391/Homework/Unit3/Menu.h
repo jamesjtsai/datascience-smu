@@ -10,7 +10,6 @@ using namespace std;
 void playGame();
 
 class Menu {
-    
   public:
     void showMenu();
     void processInput(string choice, bool &continues);

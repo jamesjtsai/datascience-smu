@@ -13,7 +13,7 @@ class Display {
     string f;
 public:
     void displayImage(string f);
-    void displayRandomImage();
+    char * getRandomImage();
 };
 
 #endif /* Display_h */

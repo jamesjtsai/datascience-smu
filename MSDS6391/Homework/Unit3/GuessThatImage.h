@@ -17,7 +17,7 @@
 #include "Display.h"
 #include "Check.h"
 
-#define MAX_MISS 5
+#define MAX_MISS 3
 
 using namespace std;
 

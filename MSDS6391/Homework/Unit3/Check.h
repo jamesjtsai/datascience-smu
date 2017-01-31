@@ -8,9 +8,8 @@
 #define Check_h
 
 class Check {
-    string word;
 public:
-    bool isCorrect(string& word);
+    bool isCorrect(string& guess, char * answer);
 };
 
 #endif /* Check_h */

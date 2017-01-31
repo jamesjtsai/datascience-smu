@@ -2,7 +2,6 @@
 //  Menu.cpp
 //
 
-
 #include "GuessThatImage.h"
 
 void Menu::showMenu() {
@@ -24,8 +23,7 @@ void Menu::showMenu() {
     cout << "Menu" << endl;
     cout << "====" << endl;
     cout << "1. Play Game" << endl;
-    cout << "2. Add New Image" << endl;
-    cout << "3. Quit" << endl;
+    cout << "2. Quit" << endl;
     cout << "" << endl;
     cout << "Enter Your Choice: ";
     return;
@@ -33,15 +31,11 @@ void Menu::showMenu() {
 
 void Menu::processInput(string choice, bool &continues) {
     char i = choice[0];
-    
     if (i == '1') {
         playGame();
         return;
     }
     else if (i == '2') {
-        return;
-    }
-    else if (i == '3') {
         cout << "\nHave a nice day!" << endl;
         continues = false;
         return;
