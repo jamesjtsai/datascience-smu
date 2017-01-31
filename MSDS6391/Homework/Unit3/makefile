@@ -1,3 +1,9 @@
+# MSDS6391 Visualization 2
+# Assignment #3
+# GuessThatImage.cpp : C++ ASCII Game
+# Author: James Tsai and Wid Sogata
+# Date: 01/31/2017
+
 OBJS = Check.o Display.o GuessThatImage.o Menu.o
 CC = g++
 DEBUG = -g
