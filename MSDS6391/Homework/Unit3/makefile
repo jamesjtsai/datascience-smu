@@ -1,0 +1,16 @@
+OBJS = Check.o Display.o GuessThatImage.o Menu.o
+CC = g++
+DEBUG = -g
+CFLAGS = -Wall -c $(DEBUG)
+LFLAGS = -Wall $(DEBUG)
+
+GuessThatImage : $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o GuessThatImage
+
+clean:
+	rm -f *.o *.tar GuessThatImage
+
+tar:
+	tar cvf GuessThatImage.tar Check.h Check.cpp Display.h Display.cpp \
+					GuessThatImage.h GuessThatImage.cpp Menu.h Menu.cpp \
+					logo/guessthatimage.txt images/*
