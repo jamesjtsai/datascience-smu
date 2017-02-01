@@ -1,6 +1,6 @@
 # MSDS6391 Visualization 2
 # Assignment #3
-# GuessThatImage.cpp : C++ ASCII Game
+# GuessThatImage Makefile
 # Author: James Tsai and Wid Sogata
 # Date: 01/31/2017
 

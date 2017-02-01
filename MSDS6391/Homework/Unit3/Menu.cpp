@@ -4,6 +4,7 @@
 
 #include "GuessThatImage.h"
 
+// game menu
 void Menu::showMenu() {
     cout << "test" << endl;
     system("clear");
@@ -29,6 +30,7 @@ void Menu::showMenu() {
     return;
 }
 
+// process user input choice
 void Menu::processInput(string choice, bool &continues) {
     char i = choice[0];
     if (i == '1') {

@@ -5,6 +5,7 @@
 #include "GuessThatImage.h"
 #include <dirent.h>
 
+// displays ascii image given path
 void Display::displayImage(string f) {
     ifstream fin;
     string ascii;
@@ -15,6 +16,7 @@ void Display::displayImage(string f) {
     }
 }
 
+// returns random ascii image from images subdirectory
 char * Display::getRandomImage() {
     unsigned char isFile = 0x8;
     DIR *dirp;

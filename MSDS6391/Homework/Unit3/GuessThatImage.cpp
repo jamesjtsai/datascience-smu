@@ -1,3 +1,9 @@
+// MSDS6391 Visualization 2
+// Assignment #3
+// GuessThatImage.cpp : C++ ASCII Game
+// Author: James Tsai and Wid Sogata
+// Date: 01/31/2017
+
 #include "GuessThatImage.h"
 #include "Menu.h"
 #include "Display.h"
