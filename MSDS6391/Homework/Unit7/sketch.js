@@ -5,24 +5,26 @@ function setup() {
   createCanvas(1024, 1024);
   noStroke();
 
-  systemlh = new ParticleSystem(createVector(width/1.99, 372.5), boolean(0));
-  systemlg = new ParticleSystem(createVector(width/1.99, 426), boolean(0));
-  systemlf = new ParticleSystem(createVector(width/1.99, 479.5), boolean(0));
-  systemle = new ParticleSystem(createVector(width/1.99, 533), boolean(0));
-  systemld = new ParticleSystem(createVector(width/1.99, 586.5), boolean(0));
-  systemlc = new ParticleSystem(createVector(width/1.99, 640), boolean(0));
-  systemlb = new ParticleSystem(createVector(width/1.99, 693.5), boolean(0));
-  systemla = new ParticleSystem(createVector(width/1.99, 747), boolean(0));
+  systemlh = new ParticleSystem(createVector(width/1.99, 372.5), boolean(0), boolean(1));
+  systemlg = new ParticleSystem(createVector(width/1.99, 426), boolean(0), boolean(1));
+  systemlf = new ParticleSystem(createVector(width/1.99, 479.5), boolean(0), boolean(1));
+  systemle = new ParticleSystem(createVector(width/1.99, 533), boolean(0), boolean(1));
+  systemld = new ParticleSystem(createVector(width/1.99, 586.5), boolean(0), boolean(1));
+  systemlc = new ParticleSystem(createVector(width/1.99, 640), boolean(0), boolean(1));
+  systemlb = new ParticleSystem(createVector(width/1.99, 693.5), boolean(0), boolean(1));
+  systemla = new ParticleSystem(createVector(width/1.99, 747), boolean(0), boolean(1));
 
 
-  systemrh = new ParticleSystem(createVector(width/1.62, 372.5), boolean(1));
-  systemrg = new ParticleSystem(createVector(width/1.62, 426), boolean(1));
-  systemrf = new ParticleSystem(createVector(width/1.62, 479.5), boolean(1));
-  systemre = new ParticleSystem(createVector(width/1.62, 533), boolean(1));
-  systemrd = new ParticleSystem(createVector(width/1.62, 586.5), boolean(1));
-  systemrc = new ParticleSystem(createVector(width/1.62, 640), boolean(1));
-  systemrb = new ParticleSystem(createVector(width/1.62, 693.5), boolean(1));
-  systemra = new ParticleSystem(createVector(width/1.62, 747), boolean(1));
+  systemrh = new ParticleSystem(createVector(width/1.62, 372.5), boolean(1), boolean(1));
+  systemrg = new ParticleSystem(createVector(width/1.62, 426), boolean(1), boolean(1));
+  systemrf = new ParticleSystem(createVector(width/1.62, 479.5), boolean(1), boolean(1));
+  systemre = new ParticleSystem(createVector(width/1.62, 533), boolean(1), boolean(1));
+  systemrd = new ParticleSystem(createVector(width/1.62, 586.5), boolean(1), boolean(1));
+  systemrc = new ParticleSystem(createVector(width/1.62, 640), boolean(1), boolean(1));
+  systemrb = new ParticleSystem(createVector(width/1.62, 693.5), boolean(1), boolean(1));
+  systemra = new ParticleSystem(createVector(width/1.62, 747), boolean(1), boolean(1));
+
+  systemrs = new ParticleSystem(createVector(width/1.79, 160), boolean(1), boolean(0));  
 }
 
 function draw() {
@@ -80,7 +82,10 @@ function draw() {
     systemlh.run();
     systemrh.addParticle();
     systemrh.run();
+    systemrs.addParticle();
+    systemrs.run();
   }
+
   drawTaipei101();
 }
 
@@ -114,16 +119,21 @@ function drawTaipei101() {
   pop();
 }
 
-var Particle = function(position, right) {
+var Particle = function(position, rside, rain) {
   this.acceleration = createVector(0, 0.1);
+  if (rside)
+    x = random(5, 3);
+  else
+    x = random(-5, -3);
   
-  if (right) {
-    this.velocity = createVector(random(5, 3), random(-5, -3));
-  } else {
-    this.velocity = createVector(random(-5, -3), random(-5, -3));
+  if (rain)
+    y = random(-5, -3);
+  else {
+    x = random(-5, 3);
+    y = random(-5, 3);
   }
   
-  //this.velocity = createVector(random(5, 3), random(-5, -3));
+  this.velocity = createVector(x, y);
   this.position = position.copy();
   this.lifespan = random(500, 2000);
   this.d = (2000-this.lifespan)/100;
@@ -166,14 +176,15 @@ Particle.prototype.isDead = function(){
   }
 };
 
-var ParticleSystem = function(position, right) {
+var ParticleSystem = function(position, rside, rain) {
   this.origin = position.copy();
-  this.right = right;
+  this.rside = rside;
+  this.rain = rain;
   this.particles = [];
 };
 
 ParticleSystem.prototype.addParticle = function() {
-  this.particles.push(new Particle(this.origin, this.right));
+  this.particles.push(new Particle(this.origin, this.rside, this.rain));
 };
 
 ParticleSystem.prototype.run = function() {
