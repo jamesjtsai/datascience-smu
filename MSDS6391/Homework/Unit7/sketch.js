@@ -125,7 +125,7 @@ var Particle = function(position, right) {
   
   //this.velocity = createVector(random(5, 3), random(-5, -3));
   this.position = position.copy();
-  this.lifespan = random(100, 2000);
+  this.lifespan = random(500, 2000);
   this.d = (2000-this.lifespan)/100;
 };
 
@@ -144,7 +144,7 @@ Particle.prototype.update = function(){
 
 // Method to display
 Particle.prototype.display = function() {
-  fill(0, 255, 0, this.lifespan);
+  fill(random(0, 255), random(0, 255), random(0, 255), this.lifespan);
   ellipse(this.position.x, this.position.y, this.d, this.d);
 };
 
