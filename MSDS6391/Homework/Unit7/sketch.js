@@ -1,97 +1,75 @@
-var systemla, systemlb, systemlc, systemld, systemle, systemlf, systemlg, systemlh;
-var systemra, systemrb, systemrc, systemrd, systemre, systemrf, systemrg, systemrh;
+var fireworks = [];
+var locations = [372.5, 426, 479.5, 533, 586.5, 640, 693.5, 747];
 
 function setup() {
   createCanvas(1024, 1024);
   noStroke();
-
-  systemlh = new ParticleSystem(createVector(width/1.99, 372.5), boolean(0), boolean(1));
-  systemlg = new ParticleSystem(createVector(width/1.99, 426), boolean(0), boolean(1));
-  systemlf = new ParticleSystem(createVector(width/1.99, 479.5), boolean(0), boolean(1));
-  systemle = new ParticleSystem(createVector(width/1.99, 533), boolean(0), boolean(1));
-  systemld = new ParticleSystem(createVector(width/1.99, 586.5), boolean(0), boolean(1));
-  systemlc = new ParticleSystem(createVector(width/1.99, 640), boolean(0), boolean(1));
-  systemlb = new ParticleSystem(createVector(width/1.99, 693.5), boolean(0), boolean(1));
-  systemla = new ParticleSystem(createVector(width/1.99, 747), boolean(0), boolean(1));
-
-
-  systemrh = new ParticleSystem(createVector(width/1.62, 372.5), boolean(1), boolean(1));
-  systemrg = new ParticleSystem(createVector(width/1.62, 426), boolean(1), boolean(1));
-  systemrf = new ParticleSystem(createVector(width/1.62, 479.5), boolean(1), boolean(1));
-  systemre = new ParticleSystem(createVector(width/1.62, 533), boolean(1), boolean(1));
-  systemrd = new ParticleSystem(createVector(width/1.62, 586.5), boolean(1), boolean(1));
-  systemrc = new ParticleSystem(createVector(width/1.62, 640), boolean(1), boolean(1));
-  systemrb = new ParticleSystem(createVector(width/1.62, 693.5), boolean(1), boolean(1));
-  systemra = new ParticleSystem(createVector(width/1.62, 747), boolean(1), boolean(1));
-
-  systemrs = new ParticleSystem(createVector(width/1.79, 160), boolean(1), boolean(0));  
+  // create particle systems for all possible locations
+  for (var i=0; i<locations.length; i++) {
+    fireworks.push(new ParticleSystem(createVector(width/1.99, locations[i]), boolean(0), boolean(1)));
+    fireworks.push(new ParticleSystem(createVector(width/1.62, locations[i]), boolean(1), boolean(1)));
+  }
+  fireworks.push(new ParticleSystem(createVector(width/1.79, 160), boolean(1), boolean(0)));
 }
 
 function draw() {
-  var s = second();
+  ms = millis();
   background(0);
   noStroke();
-
-  if (s>1) {
-    systemla.addParticle();
-    systemla.run();
-    systemra.addParticle();
-    systemra.run();
+  if (ms>1000 && ms<1250) {
+    background(50);
+    fireworks[15].addParticle();
+    fireworks[14].addParticle();
   }
-
-  if (s>2) {
-    systemlb.addParticle();
-    systemlb.run();
-    systemrb.addParticle();
-    systemrb.run();
+  if (ms>2000 && ms<2250) {
+    background(50);
+    fireworks[13].addParticle();
+    fireworks[12].addParticle();
   }
-
-  if (s>3) {
-    systemlc.addParticle();
-    systemlc.run();
-    systemrc.addParticle();
-    systemrc.run();
+  if (ms>3000 && ms<3250) {
+    background(50);
+    fireworks[11].addParticle();
+    fireworks[10].addParticle();
   }
-
-  if (s>4) {
-    systemld.addParticle();
-    systemld.run();
-    systemrd.addParticle();
-    systemrd.run();
+  if (ms>4000 && ms<4250) {
+    background(50);
+    fireworks[9].addParticle();
+    fireworks[8].addParticle();
   }
-
-  if (s>5) {
-    systemle.addParticle();
-    systemle.run();
-    systemre.addParticle();
-    systemre.run();
+  if (ms>5000 && ms<5250) {
+    background(50);
+    fireworks[7].addParticle();
+    fireworks[6].addParticle();
   }
-
-  if (s>6) {
-    systemlf.addParticle();
-    systemlf.run();
-    systemrf.addParticle();
-    systemrf.run();
-
-    systemlg.addParticle();
-    systemlg.run();
-    systemrg.addParticle();
-    systemrg.run();
-
-    systemlh.addParticle();
-    systemlh.run();
-    systemrh.addParticle();
-    systemrh.run();
-    systemrs.addParticle();
-    systemrs.run();
+  if (ms>6000 && ms<6250) {
+    background(50);
+    fireworks[5].addParticle();
+    fireworks[4].addParticle();
   }
-
+  if (ms>7000 && ms<7250) {
+    background(50);
+    fireworks[3].addParticle();
+    fireworks[2].addParticle();
+  }
+  if (ms>8000 && ms<8250) {
+    background(50);
+    fireworks[1].addParticle();
+    fireworks[0].addParticle();
+  }
+  if (ms>9000 && ms<9250) {
+    background(50);
+    fireworks[16].addParticle();
+  }
+  if (ms>10000) {
+    for(var j=0; j<fireworks.length; j++) {
+      background(50);
+      fireworks[j].addParticle();
+    }
+  }
+  for(var i=0; i<fireworks.length; i++) {
+    fireworks[i].run();
+  }
   drawTaipei101();
-}
-
-function launch(stage) {
-
-
 }
 
 function drawTaipei101() {
