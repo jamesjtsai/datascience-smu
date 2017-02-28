@@ -16,67 +16,75 @@ function draw() {
   ms = millis();
   background(25);
   noStroke();
-  fill(0, 128, 0);
   textSize(36);
   if (ms>1000 && ms<1250) {
-    background(50);
+    background(70);
     fireworks[15].addParticle();
     fireworks[14].addParticle();
+    fill(255, 255, 0);
     text('9', 565, 790);
   }
   if (ms>2000 && ms<2250) {
-    background(50);
+    background(70);
     fireworks[13].addParticle();
     fireworks[12].addParticle();
+    fill(255, 255, 0);
     text('8', 565, 735);
   }
   if (ms>3000 && ms<3250) {
-    background(50);
+    background(70);
     fireworks[11].addParticle();
     fireworks[10].addParticle();
+    fill(255, 255, 0);
     text('7', 565, 680);
   }
   if (ms>4000 && ms<4250) {
-    background(50);
+    background(70);
     fireworks[9].addParticle();
     fireworks[8].addParticle();
+    fill(255, 255, 0);
     text('6', 565, 625);
   }
   if (ms>5000 && ms<5250) {
-    background(50);
+    background(70);
     fireworks[7].addParticle();
     fireworks[6].addParticle();
+    fill(255, 255, 0);
     text('5', 565, 570);
   }
   if (ms>6000 && ms<6250) {
-    background(50);
+    background(70);
     fireworks[5].addParticle();
     fireworks[4].addParticle();
+    fill(255, 255, 0);
     text('4', 565, 515);
   }
   if (ms>7000 && ms<7250) {
-    background(50);
+    background(70);
     fireworks[3].addParticle();
     fireworks[2].addParticle();
+    fill(255, 255, 0);
     text('3', 565, 460);
   }
   if (ms>8000 && ms<8250) {
-    background(50);
+    background(70);
     fireworks[1].addParticle();
     fireworks[0].addParticle();
+    fill(255, 255, 0);
     text('2', 565, 405);
   }
   if (ms>9000 && ms<9250) {
-    background(50);
+    background(70);
     fireworks[16].addParticle();
+    fill(255, 255, 0);
     text('1', 565, 325);
   }
   if (ms>10000) {
     for(var j=0; j<fireworks.length; j++) {
-      background(50);
+      background(70);
       fireworks[j].addParticle();
     }
-    fill(200, 200, 0);
+    fill(255, 255, 0);
     textSize(20);
     text('2017', 552, 300);
   }
@@ -87,9 +95,9 @@ function draw() {
 }
 
 function drawTaipei101() {
-  noFill();
-  strokeWeight(4);
-  stroke(128);
+  fill(0, 0, 0, 100);
+  strokeWeight(2);
+  stroke(0);
   // draw top
   push();
   translate(width/2, height/6);
