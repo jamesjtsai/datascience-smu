@@ -14,57 +14,71 @@ function setup() {
 
 function draw() {
   ms = millis();
-  background(0);
+  background(25);
   noStroke();
+  fill(0, 128, 0);
+  textSize(36);
   if (ms>1000 && ms<1250) {
     background(50);
     fireworks[15].addParticle();
     fireworks[14].addParticle();
+    text('9', 565, 790);
   }
   if (ms>2000 && ms<2250) {
     background(50);
     fireworks[13].addParticle();
     fireworks[12].addParticle();
+    text('8', 565, 735);
   }
   if (ms>3000 && ms<3250) {
     background(50);
     fireworks[11].addParticle();
     fireworks[10].addParticle();
+    text('7', 565, 680);
   }
   if (ms>4000 && ms<4250) {
     background(50);
     fireworks[9].addParticle();
     fireworks[8].addParticle();
+    text('6', 565, 625);
   }
   if (ms>5000 && ms<5250) {
     background(50);
     fireworks[7].addParticle();
     fireworks[6].addParticle();
+    text('5', 565, 570);
   }
   if (ms>6000 && ms<6250) {
     background(50);
     fireworks[5].addParticle();
     fireworks[4].addParticle();
+    text('4', 565, 515);
   }
   if (ms>7000 && ms<7250) {
     background(50);
     fireworks[3].addParticle();
     fireworks[2].addParticle();
+    text('3', 565, 460);
   }
   if (ms>8000 && ms<8250) {
     background(50);
     fireworks[1].addParticle();
     fireworks[0].addParticle();
+    text('2', 565, 405);
   }
   if (ms>9000 && ms<9250) {
     background(50);
     fireworks[16].addParticle();
+    text('1', 565, 325);
   }
   if (ms>10000) {
     for(var j=0; j<fireworks.length; j++) {
       background(50);
       fireworks[j].addParticle();
     }
+    fill(200, 200, 0);
+    textSize(20);
+    text('2017', 552, 300);
   }
   for(var i=0; i<fireworks.length; i++) {
     fireworks[i].run();
@@ -74,7 +88,8 @@ function draw() {
 
 function drawTaipei101() {
   noFill();
-  stroke(255);
+  strokeWeight(4);
+  stroke(128);
   // draw top
   push();
   translate(width/2, height/6);
@@ -93,7 +108,11 @@ function drawTaipei101() {
     quad(0, 0, 25, 55, 100, 55, 125, 0);
   }
   translate(0, 55);
-  quad(15, 0, 0, 110, 125, 110, 110, 0);
+  quad(15, 0, 0, 200, 125, 200, 110, 0);
+  translate(22, -10);
+  ellipse(40, 40, 40, 40);
+  translate(17, 17);
+  rect(15, 15, 15, 15);
   pop();
 }
 
