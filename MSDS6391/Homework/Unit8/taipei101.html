@@ -1,3 +1,7 @@
+<!-- Assignment 8
+// MSDS 6391 - 03/05/17
+// James Tsai, Wid Sogata
+-->
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -77,7 +81,7 @@
 				this.acceleration = 1.01;
 				this.brightness = random( 50, 70 );
 				// circle target indicator radius
-				this.targetRadius = 1;
+				// this.targetRadius = 1;
 			}
 
 			// update firework
@@ -88,11 +92,11 @@
 				this.coordinates.unshift( [ this.x, this.y ] );
 	
 				// cycle the circle target indicator radius
-				if( this.targetRadius < 8 ) {
-					this.targetRadius += 0.3;
-				} else {
-					this.targetRadius = 1;
-				}
+				//if( this.targetRadius < 8 ) {
+				//	this.targetRadius += 0.3;
+				//} else {
+				//	this.targetRadius = 1;
+				//}
 	
 				// speed up the firework
 				this.speed *= this.acceleration;
@@ -124,10 +128,10 @@
 				ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
 				ctx.stroke();
 	
-				ctx.beginPath();
+				//ctx.beginPath();
 				// draw the target for this firework with a pulsing circle
 				//ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
-				ctx.stroke();
+				//ctx.stroke();
 			}
 
 			// create particle
@@ -149,10 +153,12 @@
 				this.gravity = 1;
 				// set the hue to a random number +-20 of the overall hue variable
 				this.hue = random( hue - 20, hue + 20 );
-				this.brightness = random( 50, 80 );
+				//this.brightness = random( 50, 80 );
+				this.brightness = random(80, 100);
 				this.alpha = 1;
 				// set how fast the particle fades out
-				this.decay = random( 0.015, 0.03 );
+				//this.decay = random( 0.015, 0.03 );
+				this.decay = random( 0.005, 0.015 );
 			}
 
 			// update particle
@@ -168,7 +174,6 @@
 				this.y += Math.sin( this.angle ) * this.speed + this.gravity;
 				// fade out the particle
 				this.alpha -= this.decay;
-	
 				// remove the particle once the alpha is low enough, based on the passed in index
 				if( this.alpha <= this.decay ) {
 					particles.splice( index, 1 );
@@ -188,7 +193,7 @@
 			// create particle group/explosion
 			function createParticles( x, y ) {
 				// increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
-				var particleCount = 30;
+				var particleCount = 75;
 				while( particleCount-- ) {
 					particles.push( new Particle( x, y ) );
 				}
