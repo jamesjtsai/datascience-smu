@@ -32,7 +32,6 @@
 			    limiterTick = 0,
 			    timerTotal = 60,
 			    timerTick = 0,
-			    mousedown = false,
 			    mx,
 			    my;
 		
@@ -221,28 +220,18 @@
 					particles[ i ].update( i );
 				}
 	
-				// launch fireworks automatically to random coordinates, when the mouse isn't down
+				// launch fireworks automatically to random coordinates
 				if( timerTick >= timerTotal ) {
-					if( !mousedown ) {
-						fireworks.push( new Firework( cw, ch, random( 0, cw / 2 ), random( 0, ch / 2 ) ) );
-						fireworks.push( new Firework( 0, ch, random( cw / 2, cw ), random( 0, ch / 2 ) ) );
-						fireworks.push( new Firework( cw / 2, ch, cw / 2, random( 0, ch / 2 ) ) );
-						timerTick = 0;
-					}
+					fireworks.push(new Firework(cw, ch, random(0, cw/2), random(0, ch/2)));
+					fireworks.push(new Firework(0, ch, random(cw/2, cw), random(0, ch/2)));
+					fireworks.push(new Firework(cw/2, ch, cw/2, random(0, ch/2)));
+					timerTick = 0;
 				} else {
 					timerTick++;
 				}
 	
-				// limit the rate at which fireworks get launched when mouse is down
-				if( limiterTick >= limiterTotal ) {
-					if( mousedown ) {
-						// start the firework at the bottom middle of the screen, then set the current mouse coordinates as the target
-						fireworks.push( new Firework( cw / 2, ch, mx, my ) );
-						limiterTick = 0;
-					}
-				} else {
-					limiterTick++;
-				}
+				
+				limiterTick++;
 			}
 
 			function taipei101() {
@@ -299,7 +288,6 @@
 				this.closePath();
 			}
 
-			//init();
 			window.onload = loop;
 
 		</script>
