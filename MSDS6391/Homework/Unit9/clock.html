@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bauhaus Clock</title>
+        <!--
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        -->
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+        -->
+    </head>
+    <body>
+    	<script type="text/javascript">
+
+    		var clockGroup, fields, formatHour, formatMinute, formatSecond, height, pi, render, scaleHours, scaleSecsMins, vis, width;
+    		var hourOffset = 0;
+    		var minOffset = 0;
+    		var secOffset = 0;
+
+    		formatSecond = d3.time.format("%S");
+    		formatMinute = d3.time.format("%M");
+    		formatHour = d3.time.format("%H");
+    		//width = config.width ? config.width : 1000;
+    		width = 500;
+    		height = width/2;
+
+    		var outerRadius = 0.8 * height/2;
+    		var offSetX = height/2;
+    		var offSetY = height/2;
+
+    		pi = Math.PI;
+
+    		scaleSecsMins = d3.scale.linear().domain([0, 59 + 59 / 60]).range([0, 2 * pi]);
+    		scaleHours = d3.scale.linear().domain([0, 11 + 59 / 60]).range([0, 2 * pi]);
+
+    		fields = function(date) {
+    			var d, data, hour, minute, second;
+    			if (date) {
+    				d = new Date(date);
+    			} else {
+    				d = new Date();
+    			}
+    			second = d.getSeconds() + secOffset;
+    			minute = d.getMinutes() + minOffset;
+    			hour = d.getHours() + hourOffset + minute / 60;
+    			return data = [
+      				{
+        				"unit": "hours",
+        				"text": formatHour(d),
+        				"numeric": hour
+      				},
+      				{
+        				"unit": "minutes",
+        				"text": formatMinute(d),
+        				"numeric": minute
+      				}, 
+      				{
+        				"unit": "seconds",
+       	 				"text": formatSecond(d),
+        				"numeric": second
+      				}    ];
+  			};
+
+			//Create SVG element
+            vis = d3.select("body")
+            		.append("svg:svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .attr("class", "clock");
+
+            clockGroup = vis.append("svg:g").attr("transform", "translate(" + offSetX + "," + offSetY + ")");
+
+  			//create the outer circle of the clock face
+  			var orr = outerRadius * 1.05;
+  			clockGroup
+  			.append("svg:circle")
+  			.attr("r", orr)
+  			.attr("fill", "none")
+  			.attr("stroke", "red")
+  			.attr("stroke-width", 5);
+
+  			//create the inner circle of the clock face
+  			var irr = outerRadius * 1.03;
+  			clockGroup
+  			.append("svg:circle")
+  			.attr("r", irr)
+  			.attr("fill", "blue")
+
+
+  			var tickUnit = outerRadius * 0.0625/3;
+
+			tickWidth = function(i) {
+  				return tickUnit;
+  			};
+
+  			tickHeight = function(i) {
+  				return tickUnit*3;
+  			};
+
+  			tickWidth2 = function(i) {
+  				return tickUnit*8;
+  			};
+
+  			tickHeight2 = function(i) {
+  				return tickUnit*3;
+  			};
+
+  			tickHeight3 = function(i) {
+  				return tickUnit*5;
+  			};
+
+
+  			tickFill = function(i) {
+  				return 'white';
+  			}
+
+  			rotationTranslate = function(i) {
+  				return "translate("+ (-tickWidth(i)/2) +",0)";
+  			}
+
+  			clockHandx = function(d) {
+            	if (d.unit==="hours"){
+              		return -tickUnit*3*2/2;
+            	} else if (d.unit==="minutes"){
+              		return -tickUnit*3*1.5/2;
+            	} else if (d.unit==="seconds") {
+              		return -tickUnit/2;
+            	}
+          	}
+
+          	clockHandy = function(d) {
+            	if (d.unit==="hours"){
+              		return -outerRadius + tickUnit*22;
+            	} else if (d.unit==="minutes"){
+              		return -outerRadius*0.8;
+            	} else if (d.unit==="seconds") {
+              		return -outerRadius + tickUnit*3;
+            	}
+          	}
+
+          	clockHandWidth = function(d) {
+          		if (d.unit === "hours") {
+          			return tickUnit*3*2;
+            	} else if (d.unit === "minutes") {
+              		return tickUnit*3*1.5;
+            	} else if (d.unit === "seconds") {
+              		return tickUnit;
+          		}
+          	}
+
+          	clockHandFill = function(d){
+            	if (d.unit==="seconds"){
+              		return "#e00";
+            	} else {
+              		return "yellow";
+            	}
+          	}
+
+          	clockHandHeight = function(d){
+            	if (d.unit === "hours") {
+              		return (outerRadius - tickUnit*3 * 3) * 0.6;
+            	} else if (d.unit === "minutes") {
+              		return outerRadius*0.8;
+            	} else if (d.unit === "seconds") {
+              		return (outerRadius - tickUnit*3 * 3) * 1.2;
+            	}
+          	}
+
+          	clockGroupAdditional = function(clockGroup) {
+            	return true;
+          	}
+
+  			tickGroup=
+  			clockGroup.append("svg:g")
+  				.selectAll(".tick")
+  				.data(d3.range(60))
+  				.enter();
+
+  			tickGroup
+  				.append("svg:rect")
+  				.attr("x", 0)
+  				.attr("y", -outerRadius)
+  				.attr("width", function(d, i) { return tickWidth(i); })
+  				.attr("height", function(d, i) { return tickHeight(i); })
+  				.attr("fill", function(d, i) { return tickFill(i); })
+  				.attr("transform", function(d, i) {
+  					return "rotate("+(i*6)+"),"+rotationTranslate(i);
+  				});
+
+  			tickGroup2=
+  			clockGroup.append("svg:g")
+  				.selectAll(".tick2")
+  				.data(d3.range(12))
+  				.enter();
+
+  			tickGroup2
+  				.append("svg:rect")
+  				.attr("x", -tickUnit*3.5)
+  				.attr("y", -outerRadius+(tickUnit*2))
+  				.attr("width", function(d, i) { return tickWidth2(i); })
+  				.attr("height", function(d, i) { return tickHeight2(i); })
+  				.attr("fill", function(d, i) { return tickFill(i); })
+  				.attr("transform", function(d, i) {
+  					return "rotate("+(i*30)+"),"+rotationTranslate(i);
+  				});
+
+  			tickGroup3=
+  			clockGroup.append("svg:g")
+  				.selectAll(".tick3")
+  				.data(d3.range(4))
+  				.enter();
+
+  			tickGroup3
+  				.append("svg:rect")
+  				.attr("x", -tickUnit*3.5)
+  				.attr("y", -outerRadius+(tickUnit*4))
+  				.attr("width", function(d, i) { return tickWidth2(i); })
+  				.attr("height", function(d, i) { return tickHeight3(i); })
+  				.attr("fill", function(d, i) { return tickFill(i); })
+  				.attr("transform", function(d, i) {
+  					return "rotate("+(i*90)+"),"+rotationTranslate(i);
+  				});
+
+  			clockGroup
+  				.append("svg:rect")
+  				.attr("x", -tickUnit*4)
+  				.attr("y", -outerRadius+(tickUnit*11))
+  				.attr("width", function(d, i) { return tickWidth2(i); })
+  				.attr("height", function(d, i) { return tickHeight2(i); })
+  				.attr("fill", function(d, i) { return tickFill(i); });
+
+
+  			render = function(data) {
+  				console.log(data);
+  				var clockHand = clockGroup.selectAll(".clockhand").data(data);
+  				if (!clockHand[0][0]) {
+  					clockHand.remove();
+      				clockHand.enter().append("svg:g");
+      				clockHand.attr("class", function(d) {
+        				return "clockhand " + d.unit;
+      				})
+      				.append("svg:rect").attr("x", function(d, i){
+        				return clockHandx(d);
+      				})
+      				.attr("y", function(d, i){
+        				return clockHandy(d);
+      				})
+      				.attr("width",function(d,i){
+        				return clockHandWidth(d);
+      				})
+      				.attr("fill", function(d,i){
+        				return clockHandFill(d);
+      				})
+      				.attr("height",function(d,i){
+        				return clockHandHeight(d);
+      				});
+					
+      				//create the circle of the seconds hand
+      				clockGroup
+      				.append("svg:circle")
+          			.attr("r", 10)
+          			.attr("fill", 'yellow')
+          			.attr("class", "clock innercircle");
+
+      				//create the circle of the pin that holds in place the seconds hand
+      				clockGroup.append("svg:circle")
+          			.attr("r", 8)
+          			.attr("fill", 'red')
+          			.attr("class", "clock innermostcircle");
+          			
+  				}
+
+  				clockHand.transition().duration(1000).ease('linear').attr("transform", function(d,i) {
+    				if (d.unit==="hours") {
+        				return "rotate("+d.numeric%12 * 30+")";
+      				} else {
+        				return "rotate("+d.numeric * 6+")";
+      				}
+    			});
+    			
+  			};
+
+  			setInterval(function() {
+      			var data = fields();
+      			return render(data);
+    		}, 1000);
+
+
+    	</script>
+    </body>
+</html>
