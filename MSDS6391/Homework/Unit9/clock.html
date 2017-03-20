@@ -2,13 +2,7 @@
 <html lang="en">
     <head>
         <title>Bauhaus Clock</title>
-        <!--
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        -->
         <script src="https://d3js.org/d3.v3.min.js"></script>
-        <!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
-        -->
     </head>
     <body>
     	<script type="text/javascript">
@@ -21,7 +15,7 @@
     		formatSecond = d3.time.format("%S");
     		formatMinute = d3.time.format("%M");
     		formatHour = d3.time.format("%H");
-    		//width = config.width ? config.width : 1000;
+    	
     		width = 500;
     		height = width/2;
 
@@ -77,7 +71,7 @@
   			.append("svg:circle")
   			.attr("r", orr)
   			.attr("fill", "none")
-  			.attr("stroke", "red")
+  			.attr("stroke", "#99281A")
   			.attr("stroke-width", 5);
 
   			//create the inner circle of the clock face
@@ -85,38 +79,20 @@
   			clockGroup
   			.append("svg:circle")
   			.attr("r", irr)
-  			.attr("fill", "blue")
-
+  			.attr("fill", "#144184")
 
   			var tickUnit = outerRadius * 0.0625/3;
 
-			tickWidth = function(i) {
-  				return tickUnit;
+			tickWidth = function(i, j) {
+  				return tickUnit*j;
   			};
-
-  			tickHeight = function(i) {
-  				return tickUnit*3;
-  			};
-
-  			tickWidth2 = function(i) {
-  				return tickUnit*8;
-  			};
-
-  			tickHeight2 = function(i) {
-  				return tickUnit*3;
-  			};
-
-  			tickHeight3 = function(i) {
-  				return tickUnit*5;
-  			};
-
 
   			tickFill = function(i) {
-  				return 'white';
+  				return "#F0F3F7";
   			}
 
   			rotationTranslate = function(i) {
-  				return "translate("+ (-tickWidth(i)/2) +",0)";
+  				return "translate("+ (-tickWidth(i,1)/2) +",0)";
   			}
 
   			clockHandx = function(d) {
@@ -151,9 +127,9 @@
 
           	clockHandFill = function(d){
             	if (d.unit==="seconds"){
-              		return "#e00";
+              		return "#99281A";
             	} else {
-              		return "yellow";
+              		return "#BFA21A";
             	}
           	}
 
@@ -181,8 +157,8 @@
   				.append("svg:rect")
   				.attr("x", 0)
   				.attr("y", -outerRadius)
-  				.attr("width", function(d, i) { return tickWidth(i); })
-  				.attr("height", function(d, i) { return tickHeight(i); })
+  				.attr("width", function(d, i) { return tickWidth(i, 1); })
+  				.attr("height", function(d, i) { return tickWidth(i, 3); })
   				.attr("fill", function(d, i) { return tickFill(i); })
   				.attr("transform", function(d, i) {
   					return "rotate("+(i*6)+"),"+rotationTranslate(i);
@@ -198,8 +174,8 @@
   				.append("svg:rect")
   				.attr("x", -tickUnit*3.5)
   				.attr("y", -outerRadius+(tickUnit*2))
-  				.attr("width", function(d, i) { return tickWidth2(i); })
-  				.attr("height", function(d, i) { return tickHeight2(i); })
+  				.attr("width", function(d, i) { return tickWidth(i, 8); })
+  				.attr("height", function(d, i) { return tickWidth(i, 3); })
   				.attr("fill", function(d, i) { return tickFill(i); })
   				.attr("transform", function(d, i) {
   					return "rotate("+(i*30)+"),"+rotationTranslate(i);
@@ -215,8 +191,8 @@
   				.append("svg:rect")
   				.attr("x", -tickUnit*3.5)
   				.attr("y", -outerRadius+(tickUnit*4))
-  				.attr("width", function(d, i) { return tickWidth2(i); })
-  				.attr("height", function(d, i) { return tickHeight3(i); })
+  				.attr("width", function(d, i) { return tickWidth(i, 8); })
+  				.attr("height", function(d, i) { return tickWidth(i, 5); })
   				.attr("fill", function(d, i) { return tickFill(i); })
   				.attr("transform", function(d, i) {
   					return "rotate("+(i*90)+"),"+rotationTranslate(i);
@@ -226,8 +202,8 @@
   				.append("svg:rect")
   				.attr("x", -tickUnit*4)
   				.attr("y", -outerRadius+(tickUnit*11))
-  				.attr("width", function(d, i) { return tickWidth2(i); })
-  				.attr("height", function(d, i) { return tickHeight2(i); })
+  				.attr("width", function(d, i) { return tickWidth(i, 8); })
+  				.attr("height", function(d, i) { return tickWidth(i, 3); })
   				.attr("fill", function(d, i) { return tickFill(i); });
 
 
@@ -259,16 +235,15 @@
       				//create the circle of the seconds hand
       				clockGroup
       				.append("svg:circle")
-          			.attr("r", 10)
-          			.attr("fill", 'yellow')
+          			.attr("r", 7.5)
+          			.attr("fill", "#99281A")
           			.attr("class", "clock innercircle");
 
       				//create the circle of the pin that holds in place the seconds hand
       				clockGroup.append("svg:circle")
-          			.attr("r", 8)
-          			.attr("fill", 'red')
+          			.attr("r", 2)
+          			.attr("fill", "#BFA21A")
           			.attr("class", "clock innermostcircle");
-          			
   				}
 
   				clockHand.transition().duration(1000).ease('linear').attr("transform", function(d,i) {
@@ -285,7 +260,6 @@
       			var data = fields();
       			return render(data);
     		}, 1000);
-
 
     	</script>
     </body>
