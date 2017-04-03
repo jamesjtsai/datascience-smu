@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>
+  <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 
 <body>
   <div id="chart"></div>
+  <svg width="400" height="200"></svg>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script>
+
+  function hl7SpiralGraph() {
+
     var width = 600,
-      height = 600,
-      start = 0,
-      end = 2.25,
-      numSpirals = 3;
+        height = 600,
+        start = 0,
+        end = 2.25,
+        numSpirals = 3;
 
     var theta = function(r) {
       return numSpirals * Math.PI * r;
@@ -49,48 +54,41 @@
         barWidth = (spiralLength / N) - 1;
 
     var parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
-/*
-    function getData(d) {
-        var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
-        return a > 90 ? a - 180 : a;
-    }
-*/
+
     d3.csv("hl7.csv", function(d) {
       d.date = parseTime(d.date);
       d.close = +d.close;
       return d;
     }, function(error, data) {
       if (error) throw error;
-    
-    // here's our time scale that'll run along the spiral
-    var timeScale = d3.scaleTime()
-      .domain(d3.extent(data, function(d){
+
+      var timeScale = d3.scaleTime()
+      .domain(d3.extent(data, function(d) {
         return d.date;
       }))
       .range([0, spiralLength]);
-    
-    // yScale for the bar height
-    var yScale = d3.scaleLinear()
+   
+      var yScale = d3.scaleLinear()
       .domain([0, d3.max(data, function(d){
         return d.close;
       })])
       .range([0, (r / numSpirals) - 30]);
 
-    var yColor = function(d) {
-      if (d > 190.0) {
-        return "red";
+      var yColor = function(d) {
+        if (d > 190.0) {
+          return "red";
+        }
+        if (d > 105.0) {
+          return "orange";
+        }
+        if (d > 65.0) {
+          return "steelblue";
+        }
+        return "green";
       }
-      if (d > 105.0) {
-        return "orange";
-      }
-      if (d > 65.0) {
-        return "steelblue";
-      }
-      return "green";
-    }
 
-    // append our rects
-    svg.selectAll("rect")
+      // append our rects
+      svg.selectAll("rect")
       .data(data)
       .enter()
       .append("rect")
@@ -124,11 +122,11 @@
         return "rotate(" + d.a + "," + d.x  + "," + d.y + ")"; // rotate the bar
       });
     
-    // add date labels
-    var tF = d3.timeFormat("%I %p"),
-        firstInMonth = {};
+      // add date labels
+      var tF = d3.timeFormat("%I %p"),
+      firstInMonth = {};
 
-    svg.selectAll("text")
+      svg.selectAll("text")
       .data(data)
       .enter()
       .append("text")
@@ -169,31 +167,95 @@
 
       svg.selectAll("rect")
       .on('mouseover', function(d) {
+
         tooltip.select('.date').html("Time: <b>" + formatDate(d.date) + "</b>");
-        tooltip.select('.close').html("Volume: <b>" + d.close + "<b>");
+        tooltip.select('.close').html("Volume: <b>" + d.close + "</b>");
 
         d3.select(this)
         .style("fill","#FFFFFF")
         .style("stroke","#000000")
-        .style("stroke-width","2px");
+        .style("stroke-width",".5px");
 
         tooltip.style('display', 'block');
-        tooltip.style('opacity',2);
-    })
-    .on('mousemove', function(d) {
+        tooltip.style('opacity', 10);
+      })
+      .on('mousemove', function(d) {
         tooltip.style('top', (d3.event.layerY + 10) + 'px')
         .style('left', (d3.event.layerX - 25) + 'px');
-    })
-    .on('mouseout', function(d) {
+      })
+      .on('mouseout', function(d) {
         d3.selectAll("rect")
         .style("fill", function(d){return yColor(d.close);})
         .style("stroke", "none")
 
         tooltip.style('display', 'none');
         tooltip.style('opacity',0);
+      });
     });
-});
+  }
+
+  function hl7TimeSeries() {
+
+    var svg = d3.select("svg"),
+    margin = {top: 10, right: 20, bottom: 30, left: 50},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
+
+    var x = d3.scaleTime()
+    .rangeRound([0, width]);
+
+    var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+    var line = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
+
+    d3.csv("hl7.csv", function(d) {
+      d.date = parseTime(d.date);
+      d.close = +d.close;
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+
+      x.domain(d3.extent(data, function(d) { return d.date; }));
+      y.domain(d3.extent(data, function(d) { return d.close; }));
+
+      g.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+      .select(".domain")
+      .remove();
+
+      g.append("g")
+      .call(d3.axisLeft(y))
+      .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("HL7 Message Count");
+
+      g.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
+    });
+  }
+
+  hl7TimeSeries();
+  hl7SpiralGraph();
+
   </script>
+  
 </body>
 
 </html>
