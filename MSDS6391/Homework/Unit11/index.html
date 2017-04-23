@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hotels Near Campus</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0dorv2afTgx6mKuD-0CGKGLVFkuh1W70"></script>
+    <script src="lib/d3.js"></script>
+    <script src="lib/crossfilter.js"></script>
+    <script src="countdown.js"></script>
+    <script src="chart.js"></script>
+    <script src="data.js"></script>
+    <script src="setup.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', init, false);
+    </script>
+  </head>
+  <body>
+    <div id="gradTitle"></div>
+    <div id="map-div"></div>
+    <div id="clockTitle"></div>
+    <div id="clockText"></div>
+    <div id="charts">
+      <br>
+      <div id="val-chart" class="chart">
+        <div class="title"><u>Hotel Rating</u></div>
+      </div>
+      <div id="val2-chart" class="chart">
+        <div class="title"><u>Room Price</u></div>
+      </div>
+      <br>
+      <div id="val3-chart" class="chart">
+        <div class="title"><u>Distance to SMU</u></div>
+      </div>
+      <div id="val4-chart" class="chart">
+        <div class="title"><u>Distance from Dallas Love Field</u></div>
+      </div>
+    </div>
+  </body>
+</html>

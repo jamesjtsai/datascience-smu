@@ -1,0 +1,99 @@
+/* Derived from Cross Filter example */
+/* Colors chosen from: https://www.smu.edu/DevelopmentExternalAffairs/PublicAffairs/IntegratedMarketing/Branding/Colors */
+
+body {
+  font-family: "Helvetica Neue";
+}
+
+#gradTitle {
+    text-align: center;
+    width: 800px;
+    color: rgb(221, 203, 164);
+    background-color: rgb(53, 76, 161);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+}
+
+#clockTitle {
+    text-align: center;
+    width: 800px;
+    color: rgb(204, 0, 0);
+    background-color: rgb(53, 76, 161);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+#clockText {
+    text-align: center;
+    width: 800px;
+    color: rgb(221, 203, 164);
+    background-color: rgb(53, 76, 161);
+    font-family: "Orbitron", sans-serif;
+    font-size: 32px;
+}
+
+#charts {
+  padding: 10px 0;
+}
+
+.chart {
+  display: inline-block;
+  height: 151px;
+  margin: 0 20px 20px;
+
+}
+
+.reset {
+  padding-left: 1em;
+  font-size: smaller;
+  color: rgb(221, 203, 164);
+}
+
+.background.bar {
+  fill: rgb(221, 203, 164);
+}
+
+.foreground.bar {
+  fill: rgb(204, 0, 0);
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.brush rect.extent {
+  fill: steelblue;
+  fill-opacity: .125;
+}
+
+.brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+
+#val-chart {
+  width: 300px;
+}
+
+#val2-chart {
+  width: 400px;
+}
+
+#val3-chart {
+  width: 300px;
+}
+
+#val4-chart {
+  width: 400px;
+}
+
+#map-div {
+  width: 800px;
+  height: 480px;
+}
