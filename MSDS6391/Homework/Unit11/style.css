@@ -28,8 +28,17 @@ body {
     width: 800px;
     color: rgb(221, 203, 164);
     background-color: rgb(53, 76, 161);
-    font-family: "Orbitron", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 32px;
+}
+
+#horseText {
+    width: 800px;
+    color: rgb(204, 0, 0);
+    background-color: rgb(53, 76, 161);
+    background-image: url("images/smu_logo.png");
+    background-size: 10%;
+    font-size: 37px;
 }
 
 #charts {
@@ -40,7 +49,6 @@ body {
   display: inline-block;
   height: 151px;
   margin: 0 20px 20px;
-
 }
 
 .reset {
@@ -96,4 +104,16 @@ body {
 #map-div {
   width: 800px;
   height: 480px;
+}
+
+img.displayed {
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;
+  */
+  background-color: rgb(53, 76, 161);
+  height: auto;
+  width: auto;
+  max-width: 150px;
+  max-height: 150px;
 }

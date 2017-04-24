@@ -40,6 +40,7 @@ function createCountdown(end) {
                                                             add2Zero(rHours) + "H " +
                                                             add2Zero(rMinutes) + "M " +
                                                             add2Zero(rSeconds) + "S";
+        document.getElementById("horseText").innerHTML = ".";
     } 
     setInterval(updateClock, 1000);   
 }
