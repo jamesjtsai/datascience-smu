@@ -1,4 +1,10 @@
-// partially adapted from crossfilter's example
+/* Assignment 11
+ * MSDS 6391 - 04/22/17
+ * James Tsai, Wid Sogata
+ *
+ * Partially derived from crossfilter's example
+ * Colors chosen from: https://www.smu.edu/DevelopmentExternalAffairs/PublicAffairs/IntegratedMarketing/Branding/Colors \
+ */
 
 var map;
 var markers = [];
@@ -172,7 +178,7 @@ function initCrossfilter() {
       .dimension(val1Dimension)
       .group(val1Grouping)
       .x(d3.scale.linear()
-          .domain([0, 5])
+          .domain([0, 5.5])
           .rangeRound([0, 20 * 10])),
 
     barChart()

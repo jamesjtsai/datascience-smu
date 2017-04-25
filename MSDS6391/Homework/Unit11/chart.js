@@ -1,3 +1,9 @@
+/* Assignment 11
+ * MSDS 6391 - 04/22/17
+ * James Tsai, Wid Sogata
+ *
+ * Copied from crossfilter's example
+ */
 
 function barChart() {
   if (!barChart.id) {

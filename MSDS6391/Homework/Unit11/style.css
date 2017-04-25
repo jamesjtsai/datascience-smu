@@ -1,5 +1,10 @@
-/* Derived from Cross Filter example */
-/* Colors chosen from: https://www.smu.edu/DevelopmentExternalAffairs/PublicAffairs/IntegratedMarketing/Branding/Colors */
+/* Assignment 11
+ * MSDS 6391 - 04/22/17
+ * James Tsai, Wid Sogata
+ *
+ * Partially derived from crossfilter's example
+ * Colors chosen from: https://www.smu.edu/DevelopmentExternalAffairs/PublicAffairs/IntegratedMarketing/Branding/Colors \
+ */
 
 body {
   font-family: "Helvetica Neue";
@@ -104,16 +109,4 @@ body {
 #map-div {
   width: 800px;
   height: 480px;
-}
-
-img.displayed {
-  /*display: block;
-  margin-left: auto;
-  margin-right: auto;
-  */
-  background-color: rgb(53, 76, 161);
-  height: auto;
-  width: auto;
-  max-width: 150px;
-  max-height: 150px;
 }

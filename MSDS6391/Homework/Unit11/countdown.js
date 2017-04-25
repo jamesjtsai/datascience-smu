@@ -1,3 +1,10 @@
+/* 
+ * Assignment 11
+ * MSDS 6391 - 04/22/17
+ * James Tsai, Wid Sogata
+ *
+ */
+
 function createDate(strDate) {
     var format = d3.time.format("%Y-%m-%d %H:%M:%S");
     return format.parse(strDate);

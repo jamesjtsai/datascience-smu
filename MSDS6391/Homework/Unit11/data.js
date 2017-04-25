@@ -1,4 +1,11 @@
-// hotels close to SMU
+/* Assignment 11
+ * MSDS 6391 - 04/22/17
+ * James Tsai, Wid Sogata
+ *
+ * Hotels close to SMU
+ * Ratings derived from Google Maps
+ */
+
 var points = [
   /* 5-star hotels */
   {lat: 32.792226, lng: -96.803659, val1: 4.6, val2: 429, val3: 3.90, val4: 5.70, name: "The Ritz-Carlton, Dallas"},
@@ -7,6 +14,7 @@ var points = [
   {lat: 32.905849, lng: -96.921287, val1: 4.3, val2: 115, val3: 15.9, val4: 11.2, name: "Omni Dallas Hotel at Park West"},
   {lat: 32.862930, lng: -96.958358, val1: 4.6, val2: 395, val3: 17.7, val4: 11.3, name: "Four Seasons at Las Colinas"},
   /* 4-star hotels */
+  {lat: 32.826141, lng: -96.847008, val1: 5.0, val2: 131, val3: 3.90, val4: 1.30, name: "Aloft Dallas Love Field"},
   {lat: 32.836142, lng: -96.777876, val1: 4.4, val2: 159, val3: 0.70, val4: 4.40, name: "The Highland Dallas"},
   {lat: 32.819910, lng: -96.786350, val1: 3.3, val2: 79,  val3: 1.30, val4: 4.80, name: "La Quinta Inn Dallas Uptown"},
   {lat: 32.809127, lng: -96.809373, val1: 4.4, val2: 137, val3: 2.60, val4: 3.00, name: "Warwick Melrose - Dallas"},
