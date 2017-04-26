@@ -179,29 +179,32 @@ function initCrossfilter() {
       .group(val1Grouping)
       .x(d3.scale.linear()
           .domain([0, 5.5])
-          .rangeRound([0, 20 * 10])),
+          .rangeRound([0, 200]))
+          .filter([3.5, 5.5]),
 
     barChart()
       .dimension(val2Dimension)
       .group(val2Grouping)
       .x(d3.scale.linear()
           .domain([0, 500])
-          .rangeRound([0, 40 * 10]))
-      .filter([75, 525]),
+          .rangeRound([0, 400]))
+          .filter([100, 450]),
 
     barChart()
       .dimension(val3Dimension)
       .group(val3Grouping)
       .x(d3.scale.linear()
           .domain([0, 20])
-          .rangeRound([0, 20 * 10])),
+          .rangeRound([0, 200]))
+          .filter([0, 10]),
 
     barChart()
       .dimension(val4Dimension)
       .group(val4Grouping)
       .x(d3.scale.linear()
           .domain([0, 20])
-          .rangeRound([0, 20 * 10]))
+          .rangeRound([0, 200]))
+          .filter([0, 10]),
   ];
 
   // bind charts to dom
