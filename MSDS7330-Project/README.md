@@ -1,1 +1,2 @@
-# MSDS7330-Project
+#### File Organization and Database Management
+A survey of current database approaches and systems, and the principles of design and use of these systems. Covers query language design and implementation constraints, and applications of large databases. Includes a survey of file structures and access techniques. Also, the use of a relational database management system to implement a database design project. Reserved for students in the M.S.D.S. program. Prerequisite: MSDS 6306. Enrollment Requirements: Reserved for students in the M.S.D.S. program. Prerequisite: MSDS 6306.
