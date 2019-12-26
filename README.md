@@ -9,3 +9,4 @@ Course | Description
 [MSDS7330](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS7330-Project) | File Organization and Database Management
 [MSDS7331](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS7331/Notebooks) | Data Mining
 [MSDS7333](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS7333/CaseStudies) | Quantifying the World
+[MSDS7349](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS7349) | Data and Network Security
