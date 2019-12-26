@@ -1,0 +1,2 @@
+#### Data Mining
+Introduces data mining topics, with an emphasis on understanding concepts through an applied, hands-on approach. Includes other related topics such as data warehousing and dimensional modeling. All material covered is reinforced through hands-on implementation exercises. Reserved for students in the M.S.D.S. program. Prerequisites: MSDS 6372, MSDS 7330 or MSDS 7346, and MSDS 6110. Enrollment Requirements: Reserved for students in the M.S.D.S. program. Prerequisites: MSDS 6372, MSDS 7330 or MSDS 7346, and MSDS 6110.
