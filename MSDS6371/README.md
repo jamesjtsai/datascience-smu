@@ -1,0 +1,2 @@
+#### Statistical Foundations for Data Science
+Noncalculus development of fundamental statistical techniques, including hypothesis testing for population means and proportions, analysis of variance, factorial designs, and linear regression. Covers obtaining sample sizes during the planning stages of research studies and emphasizes interpretation of results from analysis with SAS statistical software. Reserved for students in the M.S.D.S. program. Enrollment Requirements: Reserved for MSDS Majors.
