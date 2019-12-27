@@ -2,6 +2,7 @@
 
 Course | Description
 ------------ | -------------
+[MSDS6370](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS6370) | Statistical Sampling
 [MSDS6371](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS6371) | Statistical Foundations for Data Science
 [MSDS6372](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS6372) | Applied Statistics: Inference and Modeling
 [MSDS6390](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS6390) | Visualization of Information
