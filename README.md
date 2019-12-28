@@ -1,4 +1,4 @@
-#### Program: [Data Science, M.S.D.S.](https://datascience.smu.edu/)
+### Program: [Data Science, M.S.D.S.](https://datascience.smu.edu/)
 
 Course | Description
 ------------ | -------------
