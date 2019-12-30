@@ -1,5 +1,7 @@
 ### Program: [Data Science, M.S.D.S.](https://datascience.smu.edu/)
 
+DataScience@SMU is an online Master of Science in Data Science program designed for current and aspiring data science professionals looking to gain the advanced skills needed to manage, analyze, mine and understand complex data to make strategic decisions in their organizations. Through a combination of interactive coursework, collaborative group activities and online face-to-face classes, students gain the technical, analytical and communication skills needed to make meaningful data-driven decisions across various industries.
+
 Course | Description
 ------------ | -------------
 [MSDS6370](https://github.com/jamesjtsai/datascience-smu/tree/master/MSDS6370) | Statistical Sampling
