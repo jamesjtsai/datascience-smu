@@ -1,2 +1,2 @@
 #### Statistical Sampling
-Covers principles of planning and conducting surveys: simple random sampling; stratified and systematic subsampling; means, variances, and confidence limits; finite population correction; sampling from binomial populations; and margin of error and sample-size determination. Reserved for students in the M.S.D.S. program. Prerequisite: MSDS 7331. Enrollment Requirements: Reserved for students in the M.S.D.S. program. Prerequisite: MSDS 7331.
+Covers principles of planning and conducting surveys: simple random sampling; stratified and systematic subsampling; means, variances, and confidence limits; finite population correction; sampling from binomial populations; and margin of error and sample-size determination.

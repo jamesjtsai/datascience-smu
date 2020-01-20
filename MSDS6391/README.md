@@ -1,2 +1,2 @@
 #### Visualization of Information and Creative Coding II
-Extends the study of creative coding and visualization across numerous languages, specialized libraries/API's, and distribution platforms. Students build data-driven visualizations in Java, C++, and JavaScript, including the P5.js, three.js, and d3.js libraries. Prerequisite: MSDS 6390. Enrollment Requirements: Prerequisite: MSDS 6390. Reserved for MSDS Majors.
+Extends the study of creative coding and visualization across numerous languages, specialized libraries/API's, and distribution platforms. Students build data-driven visualizations in Java, C++, and JavaScript, including the P5.js, three.js, and d3.js libraries.
